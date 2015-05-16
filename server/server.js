@@ -1,4 +1,5 @@
-var http = require("http");
+const http = require("http")
+    , sqrt = require("../sqrt/sqrt.js")
 
 http.createServer(function(request, response) {
     response.writeHead(200, {"Content-Type": "text/plain"});
