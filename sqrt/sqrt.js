@@ -11,13 +11,13 @@ const abs = function(number){
     return number < 0 ? -number: number
 }
 
-const doneGuessing = function(iteratee,originalNumber){
+const doneGuessing = function(iteratee, originalNumber){
 
     return abs((iteratee*iteratee) - originalNumber) < precision
 
 }
 
-const guessSqrt = function(iteratee,originalNumber){
+const guessSqrt = function(iteratee, originalNumber){
 
         if (doneGuessing(iteratee, originalNumber))
             return iteratee.toFixed(precisionLength)
@@ -38,4 +38,4 @@ const sqrt = function(number){
 
 }
 
-console.log(sqrt(2))
+console.log(sqrt(144))
