@@ -1,7 +1,7 @@
-
 const sqrtStart = 1
     , precision = 0.001
     , precisionLength = 3
+
 
 const average = function(firstNumber,secondNumber){
     return (firstNumber+secondNumber)/2
@@ -19,23 +19,24 @@ const doneGuessing = function(iteratee, originalNumber){
 
 const guessSqrt = function(iteratee, originalNumber){
 
-        if (doneGuessing(iteratee, originalNumber))
-            return iteratee.toFixed(precisionLength)
+    if ( doneGuessing(iteratee, originalNumber))
+    {
+        const result = iteratee.toFixed(precisionLength)
+        return result
+    }
 
-        return guessSqrt(average(iteratee,originalNumber/ iteratee), originalNumber)
+    return guessSqrt(average(iteratee,originalNumber/ iteratee), originalNumber)
 
 }
 
-const sqrt = function(number){
-
+const sqrt = function(number) {
     if(number <= 0)
         return 0
 
     if(number === 1)
         return 1
 
-    return guessSqrt(sqrtStart,number)
-
+    return  guessSqrt(sqrtStart,number)
 }
 
-console.log(sqrt(144))
+module.exports.sqrt = sqrt
