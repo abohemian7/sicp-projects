@@ -1,7 +1,6 @@
-const sqrtStart = 1
-    , precision = 0.001
-    , precisionLength = 3
+const  config = require('../../config')
 
+var guessIndex = 0;
 
 const average = function(firstNumber,secondNumber){
     return (firstNumber+secondNumber)/2
@@ -13,7 +12,8 @@ const abs = function(number){
 
 const doneGuessing = function(iteratee, originalNumber){
 
-    return abs((iteratee*iteratee) - originalNumber) < precision
+    console.log(++guessIndex + 'guess: ' + iteratee)
+    return abs((iteratee*iteratee) - originalNumber) < Math.pow(10,-(config.andrew.sqrtConfig.precision))
 
 }
 
@@ -21,7 +21,7 @@ const guessSqrt = function(iteratee, originalNumber){
 
     if ( doneGuessing(iteratee, originalNumber))
     {
-        const result = iteratee.toFixed(precisionLength)
+        const result = iteratee.toFixed(config.andrew.sqrtConfig.precision)
         return result
     }
 
@@ -36,7 +36,7 @@ const sqrt = function(number) {
     if(number === 1)
         return 1
 
-    return  guessSqrt(sqrtStart,number)
+    return  guessSqrt(config.andrew.sqrtConfig.startGuess,number)
 }
 
 module.exports.sqrt = sqrt

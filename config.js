@@ -6,6 +6,10 @@ module.exports = {
         singleCore: true,
         services:{
             sqrt: "http://localhost/rest/v1/route-handlers/sqrt/{:number}"
+        },
+        sqrtConfig:{
+            precision:3,
+            startGuess: 1
         }
     }
 }
